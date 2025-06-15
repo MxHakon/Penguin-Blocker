@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Penguin Blocker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-10px, -10px) scale(1.05); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 16px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.7;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.8s; }
+        .section:nth-child(2) { animation-delay: 1.0s; }
+        .section:nth-child(3) { animation-delay: 1.2s; }
+        .section:nth-child(4) { animation-delay: 1.4s; }
+        .section:nth-child(5) { animation-delay: 1.6s; }
+        .section:nth-child(6) { animation-delay: 1.8s; }
+        .section:nth-child(7) { animation-delay: 2.0s; }
+        .section:nth-child(8) { animation-delay: 2.2s; }
+        .section:nth-child(9) { animation-delay: 2.4s; }
+        .section:nth-child(10) { animation-delay: 2.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #ff7eb3;
+            position: relative;
+            padding-left: 20px;
+            transition: all 0.3s ease;
+        }
+
+        h2:before {
+            content: '🐧';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            animation: penguin 3s ease-in-out infinite;
+        }
+
+        @keyframes penguin {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-5deg) scale(1.1); }
+            75% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #4ade80;
+            margin-top: 20px;
+        }
+
+        p, li {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        ul {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        li:before {
+            content: '▸';
+            color: #ff758c;
+            position: absolute;
+            left: -20px;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(255, 126, 179, 0.2), rgba(255, 117, 140, 0.2));
+            padding: 20px;
+            border-radius: 16px;
+            border-left: 4px solid #ff7eb3;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .highlight:hover {
+            transform: translateX(4px);
+            background: linear-gradient(135deg, rgba(255, 126, 179, 0.3), rgba(255, 117, 140, 0.3));
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(34, 197, 94, 0.1));
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            margin-top: 32px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(74, 222, 128, 0.2); }
+            to { box-shadow: 0 0 30px rgba(74, 222, 128, 0.4); }
+        }
+
+        .contact-link {
+            color: #4ade80;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 0 12px;
+        }
+
+        .contact-link:hover {
+            color: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            opacity: 0.6;
+            font-size: 14px;
+            animation: fadeInUp 1s ease-out 3s both;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff7eb3, #ff758c, #4ade80);
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.1s ease;
+            z-index: 1000;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            font-size: 24px;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+            font-size: 32px;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 15%;
+            animation-delay: 4s;
+            font-size: 28px;
+        }
+
+        .floating-element:nth-child(4) {
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 6s;
+            font-size: 20px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            
+            .content {
+                padding: 24px;
+            }
+            
+            .title {
+                font-size: 28px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+        }
+
+        .last-updated {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 32px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    <div class="background-pattern"></div>
+    
+    <div class="floating-elements">
+        <div class="floating-element">🐧</div>
+        <div class="floating-element">🛡️</div>
+        <div class="floating-element">🔒</div>
+        <div class="floating-element">⚡</div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">🐧</div>
+            <h1 class="title">Privacy Policy</h1>
+            <p class="subtitle">Penguin Blocker - Transparent & Secure</p>
+        </header>
+
+        <div class="content">
+            <div class="last-updated">
+                <strong>Last updated:</strong> June 15, 2025
+            </div>
+
+            <div class="section">
+                <h2>Overview</h2>
+                <p>Penguin Blocker ("we", "our", or "us") is a Chrome extension that provides basic content filtering functionality. This privacy policy explains how we collect, use, and protect your information when you use our extension.</p>
+            </div>
+
+            <div class="section">
+                <h2>Information We Collect</h2>
+                
+                <h3>Local Storage Data</h3>
+                <ul>
+                    <li><strong>Extension Settings:</strong> Your preferences for blocking features, notifications, and domain-specific settings</li>
+                    <li><strong>Statistics:</strong> Local counters for blocked content (daily and total counts)</li>
+                    <li><strong>Disabled Domains:</strong> List of websites where you've disabled blocking</li>
+                    <li><strong>Configuration Data:</strong> Extension state and user preferences</li>
+                </ul>
+
+                <div class="highlight">
+                    <h3>Data We Do NOT Collect</h3>
+                    <ul>
+                        <li>We do not collect any personal information</li>
+                        <li>We do not track your browsing history</li>
+                        <li>We do not collect data about specific websites you visit</li>
+                        <li>We do not send any data to external servers</li>
+                        <li>We do not use analytics or tracking services</li>
+                        <li>We do not collect cookies or device identifiers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>How We Use Information</h2>
+                <p>All data collected by Penguin Blocker is stored locally on your device using Chrome's storage API and is used solely to:</p>
+                <ul>
+                    <li>Remember your extension settings and preferences</li>
+                    <li>Display blocking statistics within the extension</li>
+                    <li>Maintain your domain-specific blocking preferences</li>
+                    <li>Provide the core functionality of the extension</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Data Storage and Security</h2>
+                <ul>
+                    <li>All data is stored locally on your device using Chrome's secure storage system</li>
+                    <li>No data is transmitted to external servers</li>
+                    <li>Data is only accessible by the Penguin Blocker extension</li>
+                    <li>You can clear all stored data at any time through the extension's settings</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Data Sharing</h2>
+                <p>We do not share, sell, rent, or disclose any information to third parties. Since all data is stored locally on your device, there is no external data sharing.</p>
+            </div>
+
+            <div class="section">
+                <h2>Your Rights and Controls</h2>
+                <p>You have complete control over your data:</p>
+                <ul>
+                    <li><strong>View Data:</strong> Access all stored data through the extension interface</li>
+                    <li><strong>Delete Data:</strong> Clear all data using the "Clear All Data" button in settings</li>
+                    <li><strong>Export Data:</strong> Export your disabled domains list for backup purposes</li>
+                    <li><strong>Uninstall:</strong> Removing the extension deletes all associated data</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Permissions Explanation</h2>
+                <p>Penguin Blocker requires the following Chrome permissions:</p>
+                <ul>
+                    <li><strong>declarativeNetRequest:</strong> To block ads and trackers using Chrome's native blocking API</li>
+                    <li><strong>storage:</strong> To save your settings and preferences locally</li>
+                    <li><strong>activeTab:</strong> To determine the current website domain for site-specific controls</li>
+                    <li><strong>tabs:</strong> To manage blocking rules per website</li>
+                    <li><strong>host_permissions:</strong> To apply blocking rules across all websites</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Children's Privacy</h2>
+                <p>Our extension does not knowingly collect information from children under 13. The extension is designed to be safe for users of all ages.</p>
+            </div>
+
+            <div class="section">
+                <h2>Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. When we do, we will update the "Last updated" date at the top of this policy. Continued use of the extension after changes constitutes acceptance of the updated policy.</p>
+            </div>
+
+            <div class="section">
+                <h2>Legal Compliance</h2>
+                <p>This extension complies with:</p>
+                <ul>
+                    <li>Chrome Web Store Developer Program Policies</li>
+                    <li>General Data Protection Regulation (GDPR)</li>
+                    <li>California Consumer Privacy Act (CCPA)</li>
+                    <li>Children's Online Privacy Protection Act (COPPA)</li>
+                </ul>
+            </div>
+
+            <div class="contact-section">
+                <h2>Contact Information</h2>
+                <p>If you have questions about this privacy policy or our data practices:</p>
+                <p>
+                    <a href="https://discord.gg/pinguindev" class="contact-link">💬 Discord</a>
+                    <a href="#" class="contact-link">👨‍💻 @mxhakon</a>
+                </p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p><strong>Penguin Blocker by Pinguin Development</strong><br>
+            This privacy policy is effective as of the date listed above and governs the use of Penguin Blocker extension.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+            document.getElementById('scrollIndicator').style.transform = `scaleX(${scrollPercent})`;
+        });
+
+        // Add hover effects to sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.addEventListener('mouseenter', () => {
+                section.style.transform = 'translateX(4px)';
+                section.style.transition = 'transform 0.3s ease';
+            });
+            
+            section.addEventListener('mouseleave', () => {
+                section.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
