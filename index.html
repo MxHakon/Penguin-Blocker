@@ -596,12 +596,12 @@
             <div class="logo">🐧</div>
             <h1 class="title">Privacy Policy</h1>
             <p class="subtitle">Penguin Blocker - Ad Blocker</p>
-            <div class="version-badge">Version 2.0 - Transparent & Secure</div>
+            <div class="version-badge">Version 2.1 - Transparent & Secure</div>
         </header>
 
         <div class="content">
             <div class="last-updated">
-                <strong>Last updated:</strong> July 16, 2025 | <strong>Effective Date:</strong> July 16, 2025
+                <strong>Last updated:</strong> July 17, 2025 | <strong>Effective Date:</strong> July 17, 2025
             </div>
 
             <div class="toc">
@@ -625,7 +625,7 @@
             <div class="section" id="overview">
                 <h2>🌟 Overview</h2>
                 <p>Penguin Blocker - Ad Blocker ("we", "our", or "us") is a comprehensive Chrome extension that provides advanced ad blocking, tracker prevention, and privacy protection. This privacy policy explains our commitment to protecting your privacy and details how we handle information when you use our extension.</p>
-                <p>Our extension is designed with privacy-first principles, ensuring that your browsing data remains secure and private while delivering powerful ad blocking capabilities across all websites.</p>
+                                        <p>The extension is designed to preserve website functionality by using primarily network-level blocking with minimal DOM interference. Content scripts are only injected when absolutely necessary and perform lightweight operations that don't interfere with essential website elements like search bars, navigation menus, or user interface components.</p>
             </div>
 
             <div class="section" id="information-collection">
@@ -780,7 +780,7 @@
                     </div>
                     <div class="permission-item">
                         <div class="permission-name">scripting</div>
-                        <p>Inject content scripts for DOM-level ad blocking when network filtering isn't sufficient</p>
+                        <p>Inject minimal content scripts for DOM-level ad blocking only when network filtering isn't sufficient, preserving website functionality</p>
                     </div>
                     <div class="permission-item">
                         <div class="permission-name">host_permissions</div>
@@ -796,8 +796,8 @@
                 <div class="feature-grid">
                     <div class="feature-card">
                         <span class="feature-icon">🚫</span>
-                        <div class="permission-name">Advanced Ad Blocking</div>
-                        <p>Blocks video ads, pop-ups, banners, and sponsored content across all websites including YouTube, social media, and news sites</p>
+                        <div class="permission-name">Network-Level Ad Blocking</div>
+                        <p>Blocks video ads, pop-ups, banners, and sponsored content using Chrome's declarativeNetRequest API with minimal DOM interference</p>
                     </div>
                     <div class="feature-card">
                         <span class="feature-icon">🕵️</span>
@@ -816,8 +816,8 @@
                     </div>
                     <div class="feature-card">
                         <span class="feature-icon">⚙️</span>
-                        <div class="permission-name">Custom Rules</div>
-                        <p>Create personalized blocking rules with URL patterns for specific content not covered by default filters</p>
+                        <div class="permission-name">Lightweight Operation</div>
+                        <p>Minimal content script injection that preserves website functionality while providing effective ad blocking through network rules</p>
                     </div>
                     <div class="feature-card">
                         <span class="feature-icon">🏠</span>
