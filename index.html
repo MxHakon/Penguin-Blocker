@@ -538,6 +538,72 @@
             box-shadow: 0 10px 30px rgba(255, 126, 179, 0.4);
         }
 
+        .version-notifications {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .notification {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.9), rgba(34, 211, 238, 0.9));
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateX(100px);
+            animation: notificationSlide 8s ease-in-out infinite;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 280px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .notification:nth-child(1) { animation-delay: 0s; }
+        .notification:nth-child(2) { animation-delay: 2s; }
+        .notification:nth-child(3) { animation-delay: 4s; }
+        .notification:nth-child(4) { animation-delay: 6s; }
+        .notification:nth-child(5) { animation-delay: 8s; }
+
+        @keyframes notificationSlide {
+            0% { 
+                opacity: 0; 
+                transform: translateX(100px) scale(0.8); 
+            }
+            10% { 
+                opacity: 1; 
+                transform: translateX(0) scale(1); 
+            }
+            80% { 
+                opacity: 1; 
+                transform: translateX(0) scale(1); 
+            }
+            90% { 
+                opacity: 0; 
+                transform: translateX(-100px) scale(0.8); 
+            }
+            100% { 
+                opacity: 0; 
+                transform: translateX(-100px) scale(0.8); 
+            }
+        }
+
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .notification-text {
+            opacity: 0.9;
+            color: white;
+            line-height: 1.4;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 16px;
@@ -568,6 +634,16 @@
             .toc-list {
                 grid-template-columns: 1fr;
             }
+
+            .version-notifications {
+                right: 16px;
+                left: 16px;
+                width: calc(100% - 32px);
+            }
+
+            .notification {
+                max-width: none;
+            }
         }
 
         .section.visible {
@@ -589,6 +665,29 @@
         <div class="floating-element">📊</div>
     </div>
 
+    <div class="version-notifications">
+        <div class="notification">
+            <div class="notification-title">🎉 v2.2 Released!</div>
+            <div class="notification-text">Fixed broken ad counters - now accurately tracks blocked content!</div>
+        </div>
+        <div class="notification">
+            <div class="notification-title">⚡ Real-time Updates</div>
+            <div class="notification-text">Counters update every 5 seconds for instant feedback</div>
+        </div>
+        <div class="notification">
+            <div class="notification-title">🔗 Better Links</div>
+            <div class="notification-text">Contact section now properly redirects to Discord and docs</div>
+        </div>
+        <div class="notification">
+            <div class="notification-title">🐛 Bug Fixes</div>
+            <div class="notification-text">Enhanced error handling and smoother animations</div>
+        </div>
+        <div class="notification">
+            <div class="notification-title">🚀 Improved Performance</div>
+            <div class="notification-text">Better blocking detection through multiple methods</div>
+        </div>
+    </div>
+
     <button class="back-to-top" id="backToTop">↑</button>
 
     <div class="container">
@@ -596,12 +695,12 @@
             <div class="logo">🐧</div>
             <h1 class="title">Privacy Policy</h1>
             <p class="subtitle">Penguin Blocker - Ad Blocker</p>
-            <div class="version-badge">Version 2.1 - Transparent & Secure</div>
+            <div class="version-badge">Version 2.2 - Transparent & Secure</div>
         </header>
 
         <div class="content">
             <div class="last-updated">
-                <strong>Last updated:</strong> July 17, 2025 | <strong>Effective Date:</strong> July 17, 2025
+                <strong>Last updated:</strong> December 15, 2024 | <strong>Effective Date:</strong> December 15, 2024
             </div>
 
             <div class="toc">
@@ -624,8 +723,8 @@
 
             <div class="section" id="overview">
                 <h2>🌟 Overview</h2>
-                <p>Penguin Blocker - Ad Blocker ("we", "our", or "us") is a comprehensive Chrome extension that provides advanced ad blocking, tracker prevention, and privacy protection. This privacy policy explains our commitment to protecting your privacy and details how we handle information when you use our extension.</p>
-                                        <p>The extension is designed to preserve website functionality by using primarily network-level blocking with minimal DOM interference. Content scripts are only injected when absolutely necessary and perform lightweight operations that don't interfere with essential website elements like search bars, navigation menus, or user interface components.</p>
+                <p>Penguin Blocker stops ads and trackers while keeping your data private. We built this extension because we believe your browsing habits are none of our business - they're yours.</p>
+                <p>The extension works by blocking network requests and occasionally checking webpage content to remove stubborn ads. It doesn't spy on you, doesn't phone home with your data, and doesn't try to be clever about collecting information in the background.</p>
             </div>
 
             <div class="section" id="information-collection">
@@ -672,7 +771,7 @@
 
             <div class="section" id="data-usage">
                 <h2>🎯 How We Use Information</h2>
-                <p>All data collected by Penguin Blocker - Ad Blocker is stored locally on your device using Chrome's secure storage API and is used exclusively to:</p>
+                <p>All data collected by Penguin Blocker is stored locally on your device using Chrome's secure storage API and is used exclusively to:</p>
                 <ul>
                     <li><strong>Maintain Extension Functionality:</strong> Remember your blocking preferences and settings across browser sessions</li>
                     <li><strong>Display Statistics:</strong> Show blocking counters and performance metrics within the extension popup</li>
@@ -759,7 +858,7 @@
 
             <div class="section" id="permissions">
                 <h2>🔑 Permissions Explanation</h2>
-                <p>Penguin Blocker - Ad Blocker requires the following Chrome permissions to provide comprehensive ad blocking:</p>
+                <p>Penguin Blocker requires the following Chrome permissions to provide comprehensive ad blocking:</p>
                 
                 <div class="permissions-grid">
                     <div class="permission-item">
@@ -791,7 +890,7 @@
 
             <div class="section" id="features">
                 <h2>⚡ Extension Features</h2>
-                <p>Penguin Blocker - Ad Blocker provides comprehensive privacy protection through:</p>
+                <p>Penguin Blocker provides comprehensive privacy protection through:</p>
                 
                 <div class="feature-grid">
                     <div class="feature-card">
@@ -829,7 +928,7 @@
 
             <div class="section" id="children">
                 <h2>👶 Children's Privacy</h2>
-                <p>Penguin Blocker - Ad Blocker is designed with strong privacy protections that make it safe for users of all ages:</p>
+                <p>Penguin Blocker is designed with strong privacy protections that make it safe for users of all ages:</p>
                 <ul>
                     <li><strong>No Personal Data Collection:</strong> We do not collect any information that could identify children or adults</li>
                     <li><strong>COPPA Compliant:</strong> Our extension complies with Children's Online Privacy Protection Act requirements</li>
@@ -841,7 +940,7 @@
 
             <div class="section" id="legal">
                 <h2>⚖️ Legal Compliance</h2>
-                <p>Penguin Blocker - Ad Blocker complies with major privacy and security regulations:</p>
+                <p>Penguin Blocker complies with major privacy and security regulations:</p>
                 
                 <div class="feature-grid">
                     <div class="feature-card">
@@ -887,10 +986,10 @@
                         <a href="https://discord.gg/pinguindev" class="contact-link">
                             💬 Discord Community
                         </a>
-                        <a href="#" class="contact-link">
+                        <a href="https://discord.gg/pinguindev" class="contact-link">
                             👨‍💻 Developer: @mxhakon
                         </a>
-                        <a href="#" class="contact-link">
+                        <a href="https://discord.gg/pinguindev" class="contact-link">
                             📧 Support Request
                         </a>
                     </div>
@@ -901,8 +1000,8 @@
 
         <footer class="footer">
             <p><strong>Penguin Blocker - Ad Blocker by Pinguin Development</strong></p>
-            <p>This privacy policy is effective as of the date listed above and governs the use of Penguin Blocker - Ad Blocker extension.</p>
-            <p style="margin-top: 16px; opacity: 0.6;">🐧 Committed to your privacy and security since 2025</p>
+            <p>This privacy policy is effective as of the date listed above and governs the use of Penguin Blocker extension.</p>
+            <p style="margin-top: 16px; opacity: 0.6;">Committed to your privacy and security since 2024</p>
         </footer>
     </div>
 
